@@ -14,17 +14,17 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
+                <input asp-for="email" class="form-control" id="email" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="password" class="control-label"></label>
-                <input asp-for="password" class="form-control" />
+                <input asp-for="password" class="form-control" id="password"/>
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
          
             <div class="form-group">
-                <input type="submit" value="login" class="btn btn-primary" />
+                <input type="submit" value="login" id ="login" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -32,8 +32,31 @@
 
 
 
+
 @section Scripts {
+    <script src="~/lib/jquery-3.6.0.min.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                
+
+                if (!$("#email").val()) {
+                    alert("Email field is empty");
+                } 
+                else if (!$("#password").val()) {
+                    alert("Password is empty.")
+                }
+                
+                else {
+                    // If not empty, submit the form
+                    $(this).unbind('submit').submit();
+                }
+            });
+        });
+    </script>
+
+     
 }
