@@ -224,7 +224,14 @@ namespace PlayerValidaton.Controllers
                     claims.Add(claimRole);
                     var claimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimPrincipal = new ClaimsPrincipal(claimIdentity);
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal);
+                    var authenticationProperties = new AuthenticationProperties
+                    {
+                        ExpiresUtc = DateTime.UtcNow.AddDays(5), // Cookie will expire in 5 days
+                        IsPersistent = true, // Cookie will persist across browser sessions
+                        AllowRefresh = true // Cookie can be refreshed
+                    };
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal, authenticationProperties);
                     return RedirectToAction("");
                 }
                 else
