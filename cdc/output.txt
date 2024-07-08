@@ -1,0 +1,5 @@
+ADD a, b
+SUB c, 1
+MUL f, g
+DIV h, k
+MOV e, f
