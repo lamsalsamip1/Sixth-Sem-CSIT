@@ -1,8 +1,6 @@
 // C program to test whether a given identifier is valid or not
 #include <stdio.h>
 #include <string.h>
-#include <stdio.h>
-#include <string.h>
 #include <ctype.h> // Include ctype.h to use isalpha and isdigit
 
 int main()
