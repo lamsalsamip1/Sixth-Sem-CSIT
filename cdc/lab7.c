@@ -1,22 +1,15 @@
 // C program to contruct LL(1) parsing table
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 #include <string.h>
-
 void followfirst(char, int, int);
 void findfirst(char, int, int);
 void follow(char c);
-
-int count, n = 0;
-char calc_first[10][100];
-char calc_follow[10][100];
-int m = 0;
+int count, k, e, n = 0, m = 0;
+char ck, f[10];
+char calc_first[10][100], calc_follow[10][100];
 char production[10][10], first[10];
-char f[10];
-int k;
-char ck;
-int e;
-
 int main(int argc, char **argv)
 {
     int jm = 0;

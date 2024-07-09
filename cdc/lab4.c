@@ -1,7 +1,7 @@
 // C program for lexical analyzer in C
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h> // Include ctype.h to use isalpha and isdigit
+#include <ctype.h>
 #include <stdlib.h>
 
 int isKeyword(char buffer[])
